@@ -1,0 +1,47 @@
+{
+    "name": "mmerlijn/patient",
+    "description": "Patient",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Menno",
+            "email": "menno@mmerlijn.nl"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.1"
+    },
+    "require-dev": {
+        "illuminate/support": "9.x-dev",
+        "phpunit/phpunit": "9.5.x-dev",
+        "orchestra/testbench": "7.0.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "mmerlijn\\patient\\": "src",
+            "mmerlijn\\patient\\Database\\Factories\\": "database/factories/",
+            "mmerlijn\\patient\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "mmerlijn\\patient\\tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "mmerlijn\\patient\\PatientProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-f": "vendor/bin/phpunit --filter"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
