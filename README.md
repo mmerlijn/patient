@@ -7,6 +7,10 @@ This is a Laravel package for creation of patient and requester tables with back
 - PHP 8.1
 - Laravel ^9.0
 
+### Installation
+
+Have to be done...
+
 ## Patient Model
 
 ##### Accesors
