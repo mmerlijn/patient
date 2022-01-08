@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Validator;
-use mmerlijn\patient\Casts\Initials;
-use mmerlijn\patient\Casts\Phone;
+use mmerlijn\laravelHelpers\Casts\Initials;
+use mmerlijn\laravelHelpers\Casts\Phone;
 use mmerlijn\patient\Database\Factories\RequesterFactory;
 
 class Requester extends Model

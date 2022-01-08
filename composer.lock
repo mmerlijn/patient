@@ -4,8 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "590715ea1bbee7e835adee2a5739ff26",
-    "packages": [],
+    "content-hash": "e48cb0a8e66b857a0da7503f063ed36e",
+    "packages": [
+        {
+            "name": "mmerlijn/laravel-helpers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mmerlijn/laravel-helpers.git",
+                "reference": "21b25096c23fffe82998451cdf51009d2c49ca8d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mmerlijn/laravel-helpers/zipball/21b25096c23fffe82998451cdf51009d2c49ca8d",
+                "reference": "21b25096c23fffe82998451cdf51009d2c49ca8d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "illuminate/support": "9.x-dev",
+                "orchestra/testbench": "7.0.x-dev",
+                "phpunit/phpunit": "9.5.x-dev"
+            },
+            "default-branch": true,
+            "type": "project",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "mmerlijn\\laravelHelpers\\LaravelHelpersServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "mmerlijn\\laravelHelpers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "M.Merlijn",
+                    "email": "menno@mmerlijn.nl"
+                }
+            ],
+            "description": "Laravel helpers: casts and facades",
+            "support": {
+                "issues": "https://github.com/mmerlijn/laravel-helpers/issues",
+                "source": "https://github.com/mmerlijn/laravel-helpers/tree/v1.3"
+            },
+            "time": "2022-01-08T14:45:31+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "brick/math",
@@ -6632,6 +6686,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "mmerlijn/laravel-helpers": 20,
         "illuminate/support": 20,
         "phpunit/phpunit": 20,
         "orchestra/testbench": 20

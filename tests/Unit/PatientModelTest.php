@@ -93,7 +93,7 @@ class PatientModelTest extends TestCase
         $p->phone = "+31612341234";
         $p->save();
         $this->assertDatabaseHas('patients', ['id' => $p->id, 'phone' => "0612341234"]);
-        $this->assertSame("06 1234 1234", $p->phone);
+        $this->assertSame("06 1234 1234", (string)$p->phone);
     }
 
     public function test_create_new()

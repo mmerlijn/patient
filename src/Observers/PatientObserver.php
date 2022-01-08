@@ -10,7 +10,7 @@ use mmerlijn\patient\Models\Requester;
 
 class PatientObserver
 {
-    use NameObserverTrait, PhoneObserverTrait;
+    use NameObserverTrait;
 
     /**
      * Handle the patient "created" event.
@@ -26,9 +26,7 @@ class PatientObserver
         $tmp = $this->nameSplitter($patient->own_lastname, $patient->own_prefix);
         $patient->own_lastname = $tmp['lastname'];
         $patient->own_prefix = $tmp['prefix'];
-        $patient->phone = $this->phone($patient->phone, $patient->city);
-        $patient->phone2 = $this->phone($patient->phone2, $patient->city);
-        if (!$patient->phone && $patient->phone2) {
+        if (!($patient->getAttributes()['phone'] ?? false) and ($patient->getAttributes()['phone2'] ?? false)) {
             $patient->phone = $patient->phone2;
             $patient->phone2 = null;
         }
@@ -51,12 +49,6 @@ class PatientObserver
             $tmp = $this->nameSplitter($patient->own_lastname, $patient->own_prefix);
             $patient->own_lastname = $tmp['lastname'];
             $patient->own_prefix = $tmp['prefix'];
-        }
-        if ($patient->isDirty('phone')) {
-            $patient->phone = $this->phone($patient->phone, $patient->city);
-        }
-        if ($patient->isDirty('phone2')) {
-            $patient->phone2 = $this->phone($patient->phone2, $patient->city);
         }
         if ($patient->phone == $patient->phone2) {
             $patient->phone2 = null;

@@ -11,10 +11,10 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use mmerlijn\patient\Casts\Initials;
-use mmerlijn\patient\Casts\Phone;
+use mmerlijn\laravelHelpers\Casts\Initials;
+use mmerlijn\laravelHelpers\Casts\Phone;
+use mmerlijn\laravelHelpers\Rules\Bsn;
 use mmerlijn\patient\Database\Factories\PatientFactory;
-use mmerlijn\patient\Rules\Bsn;
 
 class Patient extends Model
 {
