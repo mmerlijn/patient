@@ -10,7 +10,7 @@ trait AddressTrait
             postcode: $this->postcode,
             city: $this->city,
             street: $this->street,
-            building_nr: $this->building_nr
+            building: $this->building
         );
     }
 }

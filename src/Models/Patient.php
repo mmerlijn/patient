@@ -39,7 +39,7 @@ class Patient extends Model
         'prefix',
         'dob',
         'postcode',
-        'building_nr',
+        'building',
         'street',
         'city',
         'uzovi',
@@ -113,7 +113,7 @@ class Patient extends Model
         return $query;
     }
 
-    public static function findOrCreate(string $sex, string $own_lastname, Carbon|string $dob, string $postcode, string $building_nr, string $street, string $city, ?string $bsn = null, ?string $lastname = null, ?string $prefix = null, ?string $own_prefix = null, ?string $initials = null, ?string $uzovi = null, ?string $policy_nr = null, ?array $labels = null, ?string $last_requester = null, ?string $lbsnr = null, ?string $phone = null, ?string $phone2 = null, ?string $email = null, bool $update = true): Patient
+    public static function findOrCreate(string $sex, string $own_lastname, Carbon|string $dob, string $postcode, string $building, string $street, string $city, ?string $bsn = null, ?string $lastname = null, ?string $prefix = null, ?string $own_prefix = null, ?string $initials = null, ?string $uzovi = null, ?string $policy_nr = null, ?array $labels = null, ?string $last_requester = null, ?string $lbsnr = null, ?string $phone = null, ?string $phone2 = null, ?string $email = null, bool $update = true): Patient
     {
         $dob = ($dob instanceof Carbon) ? $dob->format('Y-m-d') : $dob;
         $v = Validator::make([
@@ -128,7 +128,7 @@ class Patient extends Model
             'sex' => [Rule::in(['M', "F", "O", "m", "f", "o"])],
         ]);
         $v->validate();
-        $patientArray = ['bsn' => $bsn, 'sex' => strtoupper($sex), 'dob' => $dob, 'initials' => $initials, 'lastname' => $lastname, 'prefix' => $prefix, 'own_lastname' => $own_lastname, 'own_prefix' => $own_prefix, 'postcode' => $postcode, 'building_nr' => $building_nr, 'street' => $street, 'city' => $city, 'uzovi' => $uzovi, 'policy_nr' => $policy_nr, 'labels' => $labels, 'lbsnr' => $lbsnr, 'last_requester' => $last_requester, 'phone' => $phone, 'phone2' => $phone2, 'email' => $email];
+        $patientArray = ['bsn' => $bsn, 'sex' => strtoupper($sex), 'dob' => $dob, 'initials' => $initials, 'lastname' => $lastname, 'prefix' => $prefix, 'own_lastname' => $own_lastname, 'own_prefix' => $own_prefix, 'postcode' => $postcode, 'building' => $building, 'street' => $street, 'city' => $city, 'uzovi' => $uzovi, 'policy_nr' => $policy_nr, 'labels' => $labels, 'lbsnr' => $lbsnr, 'last_requester' => $last_requester, 'phone' => $phone, 'phone2' => $phone2, 'email' => $email];
         if ($bsn) {
             return Patient::updateOrCreate(['bsn' => $bsn], static::reformatInput($patientArray));
         } else {

@@ -20,7 +20,7 @@ class PatientFactory extends Factory
             'dob' => $this->faker->dateTimeThisCentury->format('Y-m-d'),
             'bsn' => $this->faker->idNumber,
             'postcode' => $this->faker->postcode,
-            'building_nr' => $this->faker->buildingNumber,
+            'building' => $this->faker->buildingNumber,
             'street' => $this->faker->streetName,
             'city' => $this->faker->city,
             'phone' => $this->faker->phoneNumber,

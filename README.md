@@ -18,7 +18,7 @@ Have to be done...
 ```php
 $p->name; //Full name
 $p->salutation // Dhr/Mevr + full name 
-$p->address-> //building_nr, building_nr_full, building_nr_addition, postcode, city, street
+$p->address-> //building, building_nr, building_addition, postcode, city, street
 ```
 
 ##### Finding or creating a new Patient
@@ -61,7 +61,7 @@ $p->addAction(string $type,string $subject, mixed $details)
 ```php
 $p->name; //Full name
 $p->list_item // lastname, initials prefix (city) 
-$p->address-> //building_nr, building_nr_full, building_nr_addition, postcode, city, street
+$p->address-> //building, building_nr, building_addition, postcode, city, street
 ```
 
 ##### Finding or creating a new Requester

@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('postcode', 6)->nullable();
             $table->string('city', 80)->nullable();
             $table->string('street', 80)->nullable();
-            $table->string('building_nr', 20)->nullable();
+            $table->string('building', 20)->nullable();
             $table->string("last_requester", 8)->comment('agbcode')->nullable();
             $table->string('phone', 40)->nullable();
             $table->string('phone2', 40)->nullable();

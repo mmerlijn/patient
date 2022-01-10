@@ -13,7 +13,7 @@ class PatientServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/config.php', 'config'
+            __DIR__ . '/../config/patient.php', 'patient'
         );
     }
 

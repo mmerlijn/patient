@@ -33,7 +33,7 @@ class Requester extends Model
         'postcode',
         'city',
         'street',
-        'building_nr',
+        'building',
         'phone',
         'fax',
         'mobile',
@@ -85,7 +85,7 @@ class Requester extends Model
         return $this->lastname . ", " . trim($this->initials . " " . $this->prefix . " (" . $this->city . ")");
     }
 
-    public static function findOrCreate(string $agbcode, string $lastname, ?string $sex = null, ?string $postbus, ?string $postcode = null, ?string $building_nr = null, ?string $street = null, ?string $city = null, ?string $prefix = null, ?string $initials = null, ?array $labels = null, ?string $phone = null, ?string $mobile = null, ?string $fax = null, ?string $email = null, bool $update = true): Patient
+    public static function findOrCreate(string $agbcode, string $lastname, ?string $sex = null, ?string $postbus, ?string $postcode = null, ?string $building = null, ?string $street = null, ?string $city = null, ?string $prefix = null, ?string $initials = null, ?array $labels = null, ?string $phone = null, ?string $mobile = null, ?string $fax = null, ?string $email = null, bool $update = true): Patient
     {
         $v = Validator::make([
             'agbcode' => $agbcode,
@@ -93,7 +93,7 @@ class Requester extends Model
             'agbcode' => 'required|size:8',
         ]);
         $v->validate();
-        $requesterArray = ['agbcode' => $agbcode, 'sex' => $sex, 'initials' => $initials, 'lastname' => $lastname, 'prefix' => $prefix, 'postcode' => $postcode, 'postbus' => $postbus, 'building_nr' => $building_nr, 'street' => $street, 'city' => $city, 'labels' => $labels, 'phone' => $phone, 'fax' => $fax, 'mobile' => $mobile, 'email' => $email];
+        $requesterArray = ['agbcode' => $agbcode, 'sex' => $sex, 'initials' => $initials, 'lastname' => $lastname, 'prefix' => $prefix, 'postcode' => $postcode, 'postbus' => $postbus, 'building' => $building, 'street' => $street, 'city' => $city, 'labels' => $labels, 'phone' => $phone, 'fax' => $fax, 'mobile' => $mobile, 'email' => $email];
         return Patient::updateOrCreate(['bsn' => $agbcode], static::reformatInput($requesterArray));
     }
 }

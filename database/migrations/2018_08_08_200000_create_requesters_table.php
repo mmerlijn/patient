@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('city', 100)->nullable();
             $table->string('phone', 20)->nullable();
             $table->string('street', 100)->nullable();
-            $table->string('building_nr', 20)->nullable();
+            $table->string('building', 20)->nullable();
             $table->string('postbus', 10)->nullable();
             $table->string('email', 255)->nullable();
             $table->string('fax', 20)->nullable();

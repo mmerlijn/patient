@@ -99,10 +99,10 @@ class PatientModelTest extends TestCase
     public function test_create_new()
     {
         //DB::enableQueryLog();
-        $p = Patient::findOrCreate(sex: "M", bsn: "123456782", dob: "2000-11-11", postcode: "1040AA", building_nr: 30, street: "Streetname", city: "Amsterdam", own_lastname: "Van der Velden", phone2: "06 1234 1234", initials: "B");
+        $p = Patient::findOrCreate(sex: "M", bsn: "123456782", dob: "2000-11-11", postcode: "1040AA", building: 30, street: "Streetname", city: "Amsterdam", own_lastname: "Van der Velden", phone2: "06 1234 1234", initials: "B");
         //dd(DB::getQueryLog());
         $this->assertDatabaseHas('patients', ['bsn' => "123456782", 'city' => 'Amsterdam', 'phone' => "0612341234"]);
-        $p = Patient::findOrCreate(sex: "M", bsn: "123456782", dob: "2000-11-11", postcode: "1040AA", building_nr: 30, street: "Streetname", city: "Amsterdam", own_lastname: "Van der Velden", initials: "B", lastname: 'Groen');
+        $p = Patient::findOrCreate(sex: "M", bsn: "123456782", dob: "2000-11-11", postcode: "1040AA", building: 30, street: "Streetname", city: "Amsterdam", own_lastname: "Van der Velden", initials: "B", lastname: 'Groen');
         $this->assertDatabaseCount('patients', 1);
         $this->assertDatabaseHas('patients', ['bsn' => '123456782', 'lastname' => 'Groen']);
     }
@@ -111,10 +111,11 @@ class PatientModelTest extends TestCase
     {
         $p = Patient::factory()->create();
         $this->assertSame($p->postcode, $p->address->postcode);
-        $p->building_nr = "54a";
+        $p->building = "54a";
         $p->save();
         $this->assertSame("54", $p->address->building_nr);
-        $this->assertSame("54 a", $p->address->building_nr_full);
+        $this->assertSame("a", $p->address->building_addition);
+        $this->assertSame("54 a", $p->address->building);
     }
 
 

@@ -17,7 +17,7 @@ class RequesterFactory extends Factory
             'lastname' => $this->faker->lastName,
             'initials' => $this->faker->randomLetter,
             'postcode' => $this->faker->postcode,
-            'building_nr' => $this->faker->buildingNumber,
+            'building' => $this->faker->buildingNumber,
             'street' => $this->faker->streetName,
             'city' => $this->faker->city,
             'phone' => $this->faker->phoneNumber,
