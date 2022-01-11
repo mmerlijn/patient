@@ -51,7 +51,7 @@ return new class extends Migration
             $table->json('notes')->nullable();
             $table->json('actions')->nullable()->comment('appointment, request, test, email, sms, no_show');
             $table->timestamps();
-            $table->foreign('id')->references('id')->on('patient')->onDelete('cascade');
+            $table->foreign('id')->references('id')->on('patients')->onDelete('cascade');
         });
         if (config('database.default') == 'mysql') {
             DB::unprepared("CREATE TRIGGER `patient_tr_after_insert` AFTER INSERT ON `patients` FOR EACH ROW BEGIN

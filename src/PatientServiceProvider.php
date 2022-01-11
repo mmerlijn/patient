@@ -19,9 +19,9 @@ class PatientServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-
         Requester::observe(RequesterObserver::class);
         Patient::observe(PatientObserver::class);
+
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 }
