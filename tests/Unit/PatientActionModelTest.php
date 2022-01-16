@@ -58,8 +58,8 @@ class PatientActionModelTest extends TestCase
     public function test_add_action()
     {
         $p = Patient::factory()->create();
-        $p->addAction('appointment', 'LAB', 'web afspraak  13-13-2021');
-        $this->assertIsArray($p->action->notes);
-        $this->assertArrayHasKey(0, $p->action->notes['appointment']);
+        $p->addAction('appointment', 'created', 'web afspraak  13-13-2021');
+        $this->assertIsArray($p->action->actions);
+        $this->assertArrayHasKey(0, $p->action->actions['appointment']);
     }
 }

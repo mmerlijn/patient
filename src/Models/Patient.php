@@ -172,7 +172,7 @@ class Patient extends Model
             'subject' => $subject,
             'details' => $details
         ];
-        $this->action->notes = $n;
+        $this->action->actions = $n;
         $this->action->save();
     }
 

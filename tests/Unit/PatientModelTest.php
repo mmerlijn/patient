@@ -118,5 +118,11 @@ class PatientModelTest extends TestCase
         $this->assertSame("54 a", $p->address->building);
     }
 
-
+    public function test_add_action()
+    {
+        $p = Patient::factory()->create();
+        $p->addAction('appointment', 'created', ['start_time' => '2020-10-10 10:10:00']);
+        $this->assertSame('2020-10-10 10:10:00', $p->action->actions['appointment'][0]['details']['start_time']);
+        $this->assertSame('created', $p->action->actions['appointment'][0]['subject']);
+    }
 }
