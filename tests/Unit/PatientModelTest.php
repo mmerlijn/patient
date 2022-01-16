@@ -124,5 +124,6 @@ class PatientModelTest extends TestCase
         $p->addAction('appointment', 'created', ['start_time' => '2020-10-10 10:10:00']);
         $this->assertSame('2020-10-10 10:10:00', $p->action->actions['appointment'][0]['details']['start_time']);
         $this->assertSame('created', $p->action->actions['appointment'][0]['subject']);
+        $this->assertSame('created', Patient::first()->action->actions['appointment'][0]['subject']);
     }
 }
